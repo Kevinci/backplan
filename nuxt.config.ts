@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         transpile: ["primevue"]
     },
     runtimeConfig: {
-        mongoUri: process.env.MONGODB_URI,
+        mongoUri: "mongodb://localhost:27017/mydatabase",
         apiUrl: process.env.API_URL
     },
     nitro: {

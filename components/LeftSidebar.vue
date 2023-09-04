@@ -10,7 +10,10 @@
                     <NuxtLink to="/calendar">Kalender</NuxtLink>
                 </li>
                 <li><i class="pi pi-users"></i>
-                    <NuxtLink to="/employees">Mitarbeiter</NuxtLink>
+                    <NuxtLink to="/employees">Mitarbeiter:innen</NuxtLink>
+                </li>
+                <li><i class="pi pi-home"></i>
+                    <NuxtLink to="/stores">Bäckereien</NuxtLink>
                 </li>
                 <li><i class="pi pi-cog"></i>
                     <NuxtLink to="/settings">Einstellungen</NuxtLink>

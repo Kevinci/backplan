@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <Button label="Neuer Mitarbeiter" icon="pi pi-plus" @click="showDialog" class="mb-2" />
+        <Button label="Mitarbeiter:innen hinzufügen" icon="pi pi-plus" @click="showDialog" class="mb-2" />
         <Dialog v-model:visible="dialogVisible" position="center" modal header="Header" :style="{ width: '50vw' }">
             <div class="p-fluid">
                 <div class="p-field">
@@ -38,7 +38,7 @@
   
 <script setup>
 import axios from 'axios'
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 const columns = [
     { field: 'firstname', header: 'Name' },

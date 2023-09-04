@@ -1,6 +1,6 @@
 <template>
     <div class="top-nav">
-        {{ route.path }}
+        {{ route }}
     </div>
 </template>
   

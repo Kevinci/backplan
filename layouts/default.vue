@@ -1,5 +1,6 @@
 <template>
     <div :class="landingClass">
+        <Navbar></Navbar>
         <div class="layout-wrapper">
             <div class="layout-sidebar">
                 <!-- Sidebar -->
@@ -8,7 +9,6 @@
             <div class="layout-main">
                 <div class="layout-topbar">
                     <!-- Top Navigation Bar -->
-                    <TopNavigation></TopNavigation>
                 </div>
                 <div class="layout-content">
                     <!-- Main Content -->
