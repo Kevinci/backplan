@@ -18,25 +18,14 @@
         </div>
     </div>
 </template>
-<script>
-import TopNavigation from '/components/TopNavigation.vue'
-import LeftSidebar from '/components/LeftSidebar.vue'
+<script setup>
+import { ref } from 'vue';
+import LeftSidebar from '/components/LeftSidebar.vue';
 
-export default {
-    components: {
-        TopNavigation,
-        LeftSidebar
-    },
-    data() {
-        return {
-            landingClass: 'landing',
-            labelType: 'Speichern'
-        };
-    },
-    methods: {
+const landingClass = ref('planer')
 
-    }
-}
+
+
 </script>
   
 <style lang="scss" scoped>

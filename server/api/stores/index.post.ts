@@ -1,7 +1,6 @@
 import { connect, disconnect } from 'mongoose';
 import { stores } from "../../dbModels";
-
-
+import { Store } from "~/types/store";
 
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig()

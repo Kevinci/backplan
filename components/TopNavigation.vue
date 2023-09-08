@@ -12,7 +12,7 @@ console.log(route.name);
 <style lang="scss" scoped>
 .top-nav {
     padding: 1rem;
-    background: #3b82f6;
+    background: cadetblue;
     color: #fff;
     border-bottom: 1px solid #3475dc;
     border-radius: 0;

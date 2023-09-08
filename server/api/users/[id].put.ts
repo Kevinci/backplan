@@ -1,3 +1,4 @@
+import { User } from "~/types/user";
 import { users } from "../../dbModels";
 import { connect, disconnect } from 'mongoose';
 
@@ -32,7 +33,7 @@ export default defineEventHandler(async (event) => {
         }
 
         // Connect to the MongoDB database
-        await connect('mongodb://localhost:27017/nitro');
+        await connect('mongodb://localhost:27017/mydatabase');
 
         // Update the user with the specified ID in the database
         const userData = await users.findOneAndUpdate({ _id: userId }, updatedData, { new: true });
