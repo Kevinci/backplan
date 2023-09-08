@@ -1,13 +1,37 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "mongoose-bcrypt";
 
-const schema = new Schema({
-
-    password: {
+const EventSchema = new Schema({
+    id: {
         type: String,
-        required: false,
-        bcrypt: true,
+        required: true,
     },
+    title: {
+        type: String,
+        required: true,
+    },
+    start: {
+        type: Date,
+        required: true,
+    },
+    end: {
+        type: Date,
+        required: true,
+    },
+    allDay: {
+        type: Boolean,
+        default: false,
+    },
+    color: {
+        type: String,
+        default: '#3788d8',
+    },
+    extendedProps: {
+        description: String,
+    }
+});
+
+const UserSchema = new Schema({
     firstname: {
         type: String,
         required: true,
@@ -31,10 +55,11 @@ const schema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    events: [EventSchema]
 },
     { timestamps: true, strict: true, strictQuery: true }
 )
 
-schema.plugin(bcrypt);
-export default mongoose.model("User", schema, "users");
+UserSchema.plugin(bcrypt);
+export default mongoose.model("User", UserSchema, "users");

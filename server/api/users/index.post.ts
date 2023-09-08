@@ -1,19 +1,19 @@
 import { connect, disconnect } from 'mongoose';
 import { users } from "../../dbModels";
+import { User } from "~/types/user";
 
 
 
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig()
     try {
-        const { password, firstname, lastname, email, description, worktime, isAdmin } = await readBody<User>(event);
+        const { firstname, lastname, email, description, worktime, isAdmin } = await readBody<User>(event);
 
         // Connect to the MongoDB database
         await connect(config.mongoUri);
 
         // Create a new User document using the User model
         const newUser = new users({
-            password,
             firstname,
             lastname,
             email,

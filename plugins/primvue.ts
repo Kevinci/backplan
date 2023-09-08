@@ -9,6 +9,8 @@ import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext';
 import Textarea from 'primevue/textarea';
 import Toast from 'primevue/toast';
+import Dropdown from 'primevue/dropdown';
+
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -21,5 +23,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component("InputText", InputText);
     nuxtApp.vueApp.component("Textarea", Textarea);
     nuxtApp.vueApp.component("Toast", Toast);
+    nuxtApp.vueApp.component("Dropdown", Dropdown);
     //other components that you need
 });

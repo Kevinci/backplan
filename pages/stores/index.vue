@@ -1,6 +1,6 @@
 <template>
     <div v-if="stores" class="card">
-        <Button label="Bäckerei hinzufügen" icon="pi pi-plus" @click="showDialog" class="mb-2" />
+        <Button label="Laden hinzufügen" icon="pi pi-plus" @click="showDialog" class="mb-2" />
         <Dialog v-model:visible="dialogVisible" position="center" modal header="Header" :style="{ width: '50vw' }">
             <div class="p-fluid">
                 <div class="p-field">

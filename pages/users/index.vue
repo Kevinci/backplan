@@ -30,8 +30,42 @@
             </template>
         </Dialog>
 
-        <DataTable :value="users" showGridlines tableStyle="min-width: 50rem">
-            <Column v-for="column in columns" :field="column.field" :header="column.header" :key="column.field" />
+        <DataTable v-model:editingRows="editingRows" :value="users" tableClass="editable-cells-table" showGridlines
+            tableStyle="min-width: 50rem" editMode="row" @row-edit-save="onRowEditSave" :loading="loading">
+            <Column field="firstname" header="Name" sortable style="width: 20%">
+                <template #body="slotProps">
+                    <NuxtLink class="table-link" :to="'users/' + slotProps.data['_id']">
+                        {{ slotProps.data['firstname'] }}
+                    </NuxtLink>
+                </template>
+                <template #editor="{ data, field }">
+                    <InputText v-model="data[field]" />
+                </template>
+            </Column>
+
+            <Column field="lastname" header="Nachname" sortable style="width: 20%">
+                <template #editor="{ data, field }">
+                    <InputText v-model="data[field]" />
+                </template>
+            </Column>
+            <Column field="worktime" header="Arbeiststunden" :sortable="true">
+                <template #editor="{ data, field }">
+                    <InputText v-model="data[field]" />
+                </template>
+            </Column>
+            <Column field="worktime" header="Arbeiststunden" :sortable="true">
+                <template #editor="{ data, field }">
+                    <InputText v-model="data[field]" />
+                </template>
+            </Column>
+            <Column field="description" header="Information" :sortable="true">
+                <template #editor="{ data, field }">
+                    <InputText v-model="data[field]" />
+                </template>
+            </Column>
+            <Column :rowEditor="true" severity="success" style="width: 10%; min-width: 8rem" bodyStyle="text-align:center"
+                header="Actions">
+            </Column>
         </DataTable>
     </div>
 </template>
@@ -39,6 +73,7 @@
 <script setup>
 import axios from 'axios'
 import { ref, reactive } from 'vue'
+const config = useRuntimeConfig();
 
 const columns = [
     { field: 'firstname', header: 'Name' },
@@ -60,7 +95,7 @@ const newUser = ref({
 
 async function fetchUsers() {
     try {
-        const response = await axios.get('http://localhost:3000/api/users')
+        const response = await axios.get(`${config.public.BASE_URL}${config.public.USERS_ENDPOINT}`);
         users.value = response.data.data
         console.log(users.value)
     } catch (error) {
@@ -70,8 +105,7 @@ async function fetchUsers() {
 
 async function addUser() {
     try {
-        const response = await axios.post('http://localhost:3000/api/users', newUser.value)
-        console.log(response.data)
+        const response = await axios.post(`${config.public.BASE_URL}${config.public.USERS_ENDPOINT}`, newUser.value)
         users.value.push(response.data.data)
         hideDialog()
     } catch (error) {

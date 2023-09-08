@@ -1,6 +1,9 @@
+import { Event } from "./event";
 
 export interface Store {
-    name: string;
+    id: string;
+    name?: string;
     location: string;
     description: string;
+    events: Event[];
 }
